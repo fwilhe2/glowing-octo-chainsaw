@@ -1,0 +1,14 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        mvn spring-boot:build-image
+        docker tag docker.io/library/cloudplayground:0.0.1-SNAPSHOT docker.io/library/fwilhe/cloudplayground:latest
