@@ -11,8 +11,8 @@ jobs:
     - name: Build
       run: |
         mvn spring-boot:build-image
-        docker tag docker.io/library/cloudplayground:0.0.1-SNAPSHOT docker.io/library/fwilhe/cloudplayground:latest
+        docker tag docker.io/library/cloudplayground:0.0.1-SNAPSHOT fwilhe/cloudplayground:latest
     - name: Log into registry
       run: echo "${{ secrets.DH_PW }}" | docker login -u fwilhe --password-stdin
     - name: Push
-      run: docker push docker.io/library/fwilhe/cloudplayground:latest
+      run: docker push fwilhe/cloudplayground:latest
